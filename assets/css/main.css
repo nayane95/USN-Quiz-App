@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './top-nav.css';
+@import './font.css';
+
+.app-background {
+  background-color: #5ab0e0;
+}
+
+.progress {
+  height: 0.3rem;
+}
+
+.progress::-webkit-progress-value {
+  background-color: #ffff;
+}
+
+/* choice input custom css  */
+.choice-input {
+  height: 56px;
+  border-radius: 20px;
+}
+.choice-input-text {
+  font-size: 16px;
+}
+
+.timer-text {
+  font-family: 'Rubik-Bold';
+}
