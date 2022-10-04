@@ -2,8 +2,14 @@
   <div class="card flex-grow md:w-96 bg-white shadow-xl">
     <figure class="p-5 pt-20">
       <div class="relative">
-        <img src="../assets/img/loader.png" alt="Shoes" />
-        <div class="absolute top-1/4 flex justify-center w-full text-7xl text-center items-center text-white">
+        <img
+          src="../assets/img/loader.png"
+          alt="Shoes"
+          :style="{ transform: 'rotate(' + -0.1 * timerCount + 'turn)' }"
+        />
+        <div
+          class="absolute top-1/4 flex justify-center w-full text-7xl text-center items-center text-white"
+        >
           <div class="timer-text">
             {{ timerCount }}
           </div>
@@ -44,6 +50,10 @@ export default {
   },
   computed: {
     ...mapState('quiz', ['currentQuestionNo']),
+    currentTimer() {
+      // `this` points to the component instance
+      return this.timerCount
+    },
   },
   watch: {
     timerCount: {
