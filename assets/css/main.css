@@ -28,3 +28,53 @@
 .timer-text {
   font-family: 'Rubik-Bold';
 }
+
+.result-background {
+  background-color: #fff1cd;
+}
+.result-card-01 {
+  background-color: #5ab0e0;
+}
+
+.result-title {
+  /* Heading / H3 */
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+  /* identical to box height, or 36px */
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #246cd8;
+}
+
+.result-done-btn {
+  background: #5ab0e0;
+  border-radius: 20px;
+}
+.result-try-btn {
+  background: #8bc8e9;
+  border-radius: 20px;
+}
+
+.result-percentage {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: #0c092a;
+}
+.result-txt-tile-01 {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #858494;
+}

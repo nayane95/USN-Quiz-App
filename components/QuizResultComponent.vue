@@ -1,36 +1,62 @@
 <template>
-  <div class="card flex-grow md:w-96 bg-white shadow-xl">
-    <figure class="p-5 pt-20">
-      <div class="relative">
-        <img
-          src="../assets/img/loader.png"
-          alt="Shoes"
-          :style="{ transform: 'rotate(' + -0.1 * timerCount + 'turn)' }"
-        />
-        <div
-          class="absolute top-1/4 flex justify-center w-full text-2xl text-center items-center text-white"
-        >
-          <div class="timer-text">
-            {{ timerCount }}
+  <div>
+    <div class="result-title w-96 justify-center text-center mb-5">
+      <div class="w-full">Good Job!</div>
+    </div>
+    <div class="card flex-grow md:w-96 result-card-01 shadow-xl">
+      <figure class="p-5 pt-20">
+        <div class="relative">
+          <img
+            src="../assets/img/Illustration.png"
+            class="w-56 mt-16"
+            alt="Shoes"
+          />
+        </div>
+      </figure>
+      <div class="card-body pt-0 items-center py-10 text-left flex-grow">
+        <h2 class="card-title mt-0 mb-8 text-white pb-5">
+          You get +80 Quiz Points
+        </h2>
+        <div class="w-64 justify-center text-center mt-5">
+          <div class="w-full">
+            <button
+              class="btn w-64 result-try-btn text-white border-current h-14"
+            >
+              Try Again
+            </button>
           </div>
         </div>
       </div>
-    </figure>
-    <div class="card-body items-start py-10 text-left flex-grow">
-      <div class="pb-10">
-        QUESTION {{ currentQuestionNo }} OF {{ questionsCount }}
-      </div>
-      <h2 class="card-title mt-5 mb-20 text-black pb-5">
-        {{ questionData.questionText }}
-      </h2>
-      <div class="mt-16">
-        <div v-for="item in questionData.choices" :key="item.id">
-          <ChoiceComponent
-            :key="item.id"
-            :choice="item"
-            :correct-answer="questionData.correctAnswer"
-          ></ChoiceComponent>
+    </div>
+    <div class="w-96 justify-center text-center mt-5 p-3">
+      <div class="w-full flex">
+        <div class="flex-row w-48">
+          <div class="text-start">
+            <div class="result-txt-tile-01">CORRECT ANSWER</div>
+            <div class="result-percentage mt-2">7 questions</div>
+          </div>
+          <div class="text-start mt-5">
+            <div class="result-txt-tile-01">Skipped</div>
+            <div class="result-percentage mt-2">2</div>
+          </div>
         </div>
+        <div class="flex-row w-48">
+          <div class="text-start">
+            <div class="result-txt-tile-01">COMPLETION</div>
+            <div class="result-percentage mt-2">80%</div>
+          </div>
+          <div class="text-start mt-5">
+            <div class="result-txt-tile-01">INCORRECT ANSWER</div>
+            <div class="result-percentage mt-2">1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-96 justify-center text-center mt-5">
+      <div class="w-full">
+        <button class="btn w-96 result-done-btn text-white border-current h-14">
+          Done
+        </button>
       </div>
     </div>
   </div>
@@ -38,10 +64,8 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import ChoiceComponent from './ChoiceComponent.vue'
 
 export default {
-  components: { ChoiceComponent },
   props: {
     questionData: {
       type: Object,
@@ -50,7 +74,7 @@ export default {
   },
   data() {
     return {
-      timerCount: this.questionData.duration,
+      timerCount: 0,
       providedAnswer: null,
     }
   },
