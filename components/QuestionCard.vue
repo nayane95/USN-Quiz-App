@@ -8,7 +8,7 @@
           :style="{ transform: 'rotate(' + -0.1 * timerCount + 'turn)' }"
         />
         <div
-          class="absolute top-1/4 flex justify-center w-full text-7xl text-center items-center text-white"
+          class="absolute top-1/4 flex justify-center w-full text-2xl text-center items-center text-white"
         >
           <div class="timer-text">
             {{ timerCount }}
@@ -16,15 +16,21 @@
         </div>
       </div>
     </figure>
-    <div class="card-body items-center md:mt-16 py-10 text-center flex-grow">
-      <h2 class="card-title mt-10 pb-5">Know Your Cities</h2>
-      {{ questionData.questionText }}
-      <div v-for="item in questionData.choices" :key="item.id">
-        <ChoiceComponent
-          :key="item.id"
-          :choice="item"
-          :correct-answer="questionData.correctAnswer"
-        ></ChoiceComponent>
+    <div class="card-body items-start py-10 text-left flex-grow">
+      <div class="pb-10">
+        QUESTION {{ currentQuestionNo }} OF {{ questionsCount }}
+      </div>
+      <h2 class="card-title mt-5 mb-20 text-black pb-5">
+        {{ questionData.questionText }}
+      </h2>
+      <div class="mt-16">
+        <div v-for="item in questionData.choices" :key="item.id">
+          <ChoiceComponent
+            :key="item.id"
+            :choice="item"
+            :correct-answer="questionData.correctAnswer"
+          ></ChoiceComponent>
+        </div>
       </div>
     </div>
   </div>
@@ -50,6 +56,7 @@ export default {
   },
   computed: {
     ...mapState('quiz', ['currentQuestionNo']),
+    ...mapState('quiz', ['currentQuestionNo', 'questionsCount']),
     currentTimer() {
       // `this` points to the component instance
       return this.timerCount
